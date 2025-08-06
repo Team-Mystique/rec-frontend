@@ -1,0 +1,124 @@
+.main-card {
+  background-color: #eaf2f8;
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid #d6eaf8;
+}
+
+.main-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+}
+
+.main-card-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.main-card-header svg {
+  color: #3498db;
+}
+
+.courses-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.course-item {
+  background-color: white;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  display: grid;
+  grid-template-areas:
+    "info details"
+    "progress progress"
+    "button button";
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.75rem 1rem;
+}
+
+.course-info {
+  grid-area: info;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.course-color-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.course-name {
+  margin: 0 0 0.25rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.course-code {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #7f8c8d;
+}
+
+.course-details {
+  grid-area: details;
+  text-align: right;
+  font-size: 0.875rem;
+  color: #2c3e50;
+}
+
+.course-progress-text {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.progress-bar-container {
+  grid-area: progress;
+  width: 100%;
+  background-color: #ecf0f1;
+  border-radius: 8px;
+  height: 8px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 8px;
+}
+
+.continue-button {
+  grid-area: button;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  justify-self: flex-end;
+  width: 120px;
+  transition: background-color 0.2s;
+}
+
+.continue-button:hover {
+  background-color: #2980b9;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .courses-list {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+}

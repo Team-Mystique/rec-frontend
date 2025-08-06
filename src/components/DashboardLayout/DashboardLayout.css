@@ -1,0 +1,169 @@
+/* Main layout container */
+.dashboard-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header styles */
+.dashboard-header {
+  background-color: #2c3e50; /* Dark blue-gray */
+  color: white;
+  padding: 0 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+}
+
+.header-left {
+  height: 100%;
+  display: flex;
+  align-items: start;
+  padding-top: 1rem;
+  gap: 1rem;
+}
+
+.header-left .logo {
+  height: 32px;
+  width: auto;
+  display: block;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.icon-button svg {
+  display: block;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+.user-profile .user-icon {
+  background-color: white;
+  color: #2c3e50;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Main content area */
+.main-content {
+  flex: 1;
+  padding: 1.5rem;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.welcome-section {
+    margin-bottom: 2rem;
+}
+
+.welcome-title {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin: 0 0 0.5rem 0;
+}
+
+.welcome-subtitle {
+    font-size: 1rem;
+    color: #7f8c8d;
+    margin: 0;
+}
+
+/* Footer styles */
+.dashboard-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.footer-link {
+  background: none;
+  border: none;
+  color: #3498db;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+/* --- Dropdown Menu Styles --- */
+.menu-container {
+  position: relative; /* Anchor for the absolute positioned dropdown */
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px); /* Position below the header with a 10px gap */
+  right: 0;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+  width: 220px;
+  z-index: 100;
+  overflow: hidden;
+  padding: 0.5rem 0;
+  border: 1px solid #eaf2f8;
+}
+
+.dropdown-item {
+  display: block;
+  padding: 0.75rem 1.25rem;
+  color: #2c3e50;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f4f8;
+  color: #3498db;
+}
+/* --- End of Dropdown Menu Styles --- */
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  /* Hide the user's name on small screens, showing only the icon */
+  .user-profile span:not(.user-icon) {
+    display: none;
+  }
+  
+  .header-content, .main-content, .dashboard-footer {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
