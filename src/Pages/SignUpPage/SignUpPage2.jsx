@@ -3,7 +3,7 @@ import { FaGraduationCap } from 'react-icons/fa';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './SignUpPage2.css';
 
-const logoUrl = '/RecLogo.png';
+const logoUrl = '/logo.png';
 
 const SignUpPage2 = () => {
   const navigate = useNavigate();

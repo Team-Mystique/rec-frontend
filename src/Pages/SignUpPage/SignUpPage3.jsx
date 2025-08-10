@@ -4,7 +4,7 @@ import { FaXTwitter } from 'react-icons/fa6';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './SignUpPage3.css';
 
-const logoUrl = '/RecLogo.png';
+const logoUrl = '/logo.png';
 
 const SignUpPage3 = () => {
   const navigate = useNavigate();

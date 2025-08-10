@@ -6,7 +6,7 @@ import { FaXTwitter } from "react-icons/fa6";
 
 
 // You can replace this with your actual logo
-const logoUrl = '/RecLogo.png';
+const logoUrl = '/logo.png';
 
 const LoginPage = () => {
     const [email, setEmail] = useState('');

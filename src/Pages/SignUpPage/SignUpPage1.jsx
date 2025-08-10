@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import './SignUpPage1.css';
 
 // Assume the logo is in the public folder
-const logoUrl = '/RecLogo.png';
+const logoUrl = '/logo.png';
 
 const SignUpPage1 = () => {
   const navigate = useNavigate();
