@@ -1,0 +1,100 @@
+/* Reusing main card styles for a consistent look */
+.main-card {
+  background-color: #eaf2f8;
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid #d6eaf8;
+}
+
+.main-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+}
+
+.main-card-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.main-card-header svg {
+  color: #f39c12; /* Gold color for the trophy */
+}
+
+/* List of performance items */
+.performance-list {
+  display: flex;
+  flex-direction: column;
+}
+
+/* A single performance item */
+.performance-item {
+  display: grid;
+  grid-template-areas:
+    "info grade"
+    "bar bar";
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 1rem 0.5rem;
+  gap: 0.5rem 1rem;
+}
+
+.performance-info {
+  grid-area: info;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.performance-color-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.performance-name {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.performance-grade {
+  grid-area: grade;
+  text-align: right;
+  color: #2c3e50;
+}
+
+.grade-letter {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-right: 0.5rem;
+}
+
+.grade-percentage {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+}
+
+.grade-bar-container {
+  grid-area: bar;
+  height: 6px;
+  background-color: #d6eaf8;
+  border-radius: 3px;
+  width: 100%;
+}
+
+.grade-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+}
+
+.divider {
+  border: 0;
+  height: 1px;
+  background-color: #09263D;
+  margin: 0;
+}

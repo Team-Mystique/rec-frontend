@@ -1,0 +1,63 @@
+/* Container for the statistical cards */
+.welcome-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Single column on mobile */
+  gap: 1.5rem; /* Space between cards */
+  
+  background-color: transparent;
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+
+/* Individual card styling */
+.stat-card {
+  background-color: #DDEDEE;
+  border-radius: 16px; /* Rounded corners */
+  padding: 1.5rem;
+  border: 1px solid #d6eaf8;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.07);
+}
+
+/* Styling for the card title, e.g., "Overall GPA" */
+.stat-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  color: #2c3e50; /* Dark blue-gray text */
+  font-weight: 500;
+}
+
+/* Styling for the main number, e.g., "3.8" */
+.stat-value {
+  margin: 0 0 0.25rem 0;
+  font-size: 2.5rem;
+  color: #2c3e50;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+/* Styling for the description, e.g., "Above average" */
+.stat-description {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #7f8c8d; /* Muted gray text */
+}
+
+/* Responsive Grid for larger screens */
+@media (min-width: 768px) {
+  .welcome-grid {
+    /* Two-column grid on tablets and desktops */
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Optional: For even larger screens, you could go to a 4-column layout */
+@media (min-width: 1200px) {
+  .welcome-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
