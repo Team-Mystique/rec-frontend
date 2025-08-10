@@ -1,0 +1,128 @@
+/* Downloads Card */
+.main-card {
+  background-color: #eaf2f8;
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid #d6eaf8;
+}
+
+.main-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem; /* Reduced bottom margin */
+}
+
+.main-card-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.main-card-header svg {
+  color: #3498db;
+}
+
+/* Downloads List */
+.downloads-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.download-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0.5rem;
+}
+
+.download-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.file-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+}
+.document-icon { background-color: #d6eaf8; color: #3498db; }
+.video-icon { background-color: #d5f5e3; color: #2ecc71; }
+
+.download-title {
+  margin: 0 0 0.25rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.download-meta {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #7f8c8d;
+}
+
+.download-button {
+  background: none;
+  border: 1px solid #bdc3c7;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  color: #7f8c8d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.divider {
+  border: 0;
+  height: 1px;
+  background-color: #09263D;
+  margin: 0;
+}
+
+/* Quick Actions Section */
+.quick-actions-card {
+  margin-top: 2rem;
+}
+
+.quick-actions-title {
+  font-size: 1.25rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.quick-actions-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.quick-action-button {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 12px;
+  border: none;
+  background-color: #3498db;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.quick-action-button:hover {
+  background-color: #2980b9;
+}
+
+.quick-action-icon {
+  font-size: 1.25rem;
+}
