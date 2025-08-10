@@ -1,0 +1,136 @@
+/* General Page Styles */
+.success-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(145deg, #5c7cfa, #3a5998);
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Header and Logo */
+.success-header {
+    width: 100%;
+    margin-bottom: 20px;
+}
+.logo-link-success { text-decoration: none; }
+
+.logo-container-success {
+    display: flex;
+    align-items: flex-start;
+    color: #fff;
+    font-weight: bold;
+    font-size: 2.5rem;
+}
+
+.logo-subtext-success {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.5rem;
+    font-weight: normal;
+    line-height: 1.2;
+    margin-left: 8px;
+    margin-top: 5px;
+    border-left: 1px solid #fff;
+    padding-left: 8px;
+}
+
+/* Main Content Area */
+.success-main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.success-container {
+    background-color: #eaf0f7;
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 480px;
+    text-align: center;
+}
+
+.success-icon-wrapper {
+    color: #22c55e; /* A bright green for success */
+    font-size: 4rem;
+    margin-bottom: 20px;
+    line-height: 1; /* Helps with vertical alignment */
+}
+
+.success-container h1 {
+    font-size: 2rem;
+    color: #1e3a8a;
+    margin-bottom: 15px;
+}
+
+.subtitle-success {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    font-size: 1.05rem;
+}
+
+.user-email-display {
+    font-weight: bold;
+    color: #3a5998;
+    display: block; /* Puts the email on its own line */
+    margin-top: 8px;
+}
+
+/* Buttons and Links */
+.verify-email-button {
+    display: inline-block;
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    background-image: linear-gradient(to right, #5c7cfa, #3b5998);
+    color: white;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 25px;
+}
+
+.verify-email-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.back-link-success {
+    color: #555;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s;
+}
+
+.back-link-success:hover {
+    color: #3a5998;
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 520px) {
+    .success-container {
+        padding: 30px 25px;
+    }
+
+    .success-container h1 {
+        font-size: 1.8rem;
+    }
+
+    .subtitle-success {
+        font-size: 1rem;
+    }
+}

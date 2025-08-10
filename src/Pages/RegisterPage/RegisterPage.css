@@ -1,0 +1,111 @@
+/* General Page and Font Styles */
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.register-page {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden; /* Prevents scrollbars from layout shifts */
+}
+
+/* Image Panel (Left Side) */
+.image-panel {
+    flex: 1 1 60%; /* Takes up 60% of the width */
+    background-color: #f0f0f0; /* Fallback color */
+}
+
+.image-panel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the panel without distortion */
+    display: block;
+}
+
+/* Action Panel (Right Side) */
+.action-panel {
+    flex: 1 1 40%; /* Takes up 40% of the width */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(160deg, #1e3a8a, #2c5282); /* Dark blue gradient */
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.action-content {
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+}
+
+/* Logo Styles (adapted for this page) */
+.logo-container-register {
+    display: flex;
+    align-items: flex-start;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 5rem;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.logo-subtext-register {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8rem;
+    font-weight: normal;
+    text-align: left;
+    line-height: 1.3;
+    margin-left: 12px;
+    margin-top: 10px;
+    border-left: 2px solid #ffffff;
+    padding-left: 12px;
+}
+
+/* Button Container and Styles */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Space between buttons */
+}
+
+.choice-button {
+    background-color: #4a69bd;
+    color: white;
+    border: none;
+    border-radius: 30px; /* Pill shape */
+    padding: 18px 25px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.choice-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+    .register-page {
+        flex-direction: column;
+    }
+
+    .image-panel {
+       display: none; /* Hide the image on small screens to save space */
+    }
+
+    .action-panel {
+        min-height: 100vh;
+        width: 100%;
+        flex-basis: auto; /* Reset flex-basis */
+    }
+}
