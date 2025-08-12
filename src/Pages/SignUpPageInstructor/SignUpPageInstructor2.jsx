@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { FaGraduationCap } from 'react-icons/fa';
 import { useNavigate, useLocation } from 'react-router-dom';
-import './SignUpPage2.css';
+import './SignUpPageInstructor2.css';
 
 const logoUrl = '/logo.png';
 
-const SignUpPage2 = () => {
+const SignUpPageInstructor2 = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -29,7 +29,7 @@ const SignUpPage2 = () => {
     } else {
       // If a user lands here directly without completing step 1, send them back.
       console.error("No data received from the previous step. Redirecting to sign-up start.");
-      navigate('/signup'); // Assuming '/signup' is the route for the first step.
+      navigate('/signup-instructor-1'); // Assuming '/signup' is the route for the first step.
     }
   }, [location.state, navigate]);
 
@@ -71,7 +71,7 @@ const SignUpPage2 = () => {
       console.log('Step 2 valid. Navigating with combined data:', combinedData);
       
       // Navigate to the final step with all collected data
-      navigate('/signup3', { state: { user_data: combinedData } });
+      navigate('/signup-instructor-3', { state: { user_data: combinedData } });
     }
   };
 
@@ -168,4 +168,4 @@ const SignUpPage2 = () => {
   );
 };
 
-export default SignUpPage2;
+export default SignUpPageInstructor2;

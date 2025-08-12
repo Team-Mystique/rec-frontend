@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { FaGraduationCap } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-import './SignUpPage1.css';
+import './SignUpPageStudent1.css';
 
 // Assume the logo is in the public folder
 const logoUrl = '/logo.png';
 
-const SignUpPage1 = () => {
+const SignUpPageStudent1 = () => {
   const navigate = useNavigate();
 
   // State to hold all form data in a single object
@@ -76,7 +76,7 @@ const SignUpPage1 = () => {
       
       // Navigate to SignUpPage2 and pass the current form data
       // This data can be accessed in the next component via `useLocation` hook
-      navigate('/signup2', { state: { user_data: formData } });
+      navigate('/signup-student-2', { state: { user_data: formData } });
     }
   };
 
@@ -160,7 +160,7 @@ const SignUpPage1 = () => {
         </form>
 
         <div className="signup-footer">
-          <a href="/login" className="footer-link">← Back to login</a>
+          <a href="/login-student" className="footer-link">← Back to login</a>
           <a href="#home" className="footer-link">Return to homepage</a>
         </div>
       </div>
@@ -168,4 +168,4 @@ const SignUpPage1 = () => {
   );
 };
 
-export default SignUpPage1;
+export default SignUpPageStudent1;
