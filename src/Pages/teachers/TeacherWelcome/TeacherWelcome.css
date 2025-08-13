@@ -1,0 +1,48 @@
+.teacher-welcome-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.widget-card {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.widget-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.widget-icon {
+  font-size: 2.5rem;
+  background-color: #e9ecef;
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.widget-content {
+  flex: 1;
+}
+
+.widget-title {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.2rem;
+  color: #212529;
+}
+
+.widget-description {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #6c757d;
+}

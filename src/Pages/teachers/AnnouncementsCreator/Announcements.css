@@ -1,0 +1,120 @@
+.main-card {
+  background-color: #eaf2f8;
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid #d6eaf8;
+}
+
+.main-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+}
+
+.main-card-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.main-card-header svg {
+  color: #c0392b; /* Red for announcements */
+}
+
+/* --- Announcement Creator --- */
+.announcement-creator {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.creator-title {
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+  color: #2c3e50;
+}
+
+.creator-textarea {
+  width: 100%;
+  min-height: 120px;
+  border: 1px solid #d6eaf8;
+  border-radius: 8px;
+  padding: 1rem;
+  font-family: inherit;
+  font-size: 1rem;
+  resize: vertical;
+  box-sizing: border-box; /* Ensures padding is included in width */
+}
+
+.creator-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.publish-button {
+  background-color: #c0392b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.publish-button:hover {
+  background-color: #a93226;
+}
+
+/* --- Published Announcements --- */
+.published-title {
+  font-size: 1.1rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #d6eaf8;
+  padding-bottom: 0.5rem;
+}
+
+.announcements-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.announcement-item {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.announcement-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.announcement-item-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.announcement-date {
+  font-size: 0.875rem;
+  color: #7f8c8d;
+  flex-shrink: 0;
+  margin-left: 1rem;
+}
+
+.announcement-content {
+  margin: 0;
+  color: #34495e;
+  line-height: 1.6;
+}

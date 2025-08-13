@@ -1,0 +1,130 @@
+.analytics-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* --- Page Header --- */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.page-header h1 {
+  margin: 0;
+  color: #2c3e50;
+}
+
+.date-range-picker {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #7f8c8d;
+}
+
+.date-range-picker select {
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #d6eaf8;
+  background-color: #fff;
+}
+
+/* --- Key Metrics --- */
+.key-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.metric-card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.metric-label {
+  margin: 0 0 0.5rem 0;
+  color: #7f8c8d;
+  font-size: 0.95rem;
+}
+
+.metric-value {
+  margin: 0 0 0.5rem 0;
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.metric-change {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.metric-change.positive { color: #27ae60; }
+.metric-change.negative { color: #e74c3c; }
+
+/* --- Chart Placeholders --- */
+.main-chart-container,
+.chart-container,
+.data-table-widget {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid #e9ecef;
+}
+
+.main-chart-container h3,
+.chart-container h3,
+.data-table-widget h3 {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.1rem;
+  color: #2c3e50;
+}
+
+.chart-placeholder {
+  background-color: #f8f9fa;
+  border: 1px dashed #d6eaf8;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #bdc3c7;
+  font-weight: 500;
+  min-height: 250px;
+}
+
+.chart-placeholder.large {
+  min-height: 400px;
+}
+
+/* --- Secondary Grid --- */
+.secondary-widgets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+/* --- Analytics Table --- */
+.analytics-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.analytics-table th, .analytics-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #f1f3f5;
+}
+
+.analytics-table th {
+  font-size: 0.875rem;
+  color: #7f8c8d;
+}
+
+.analytics-table tbody tr:last-child td {
+  border-bottom: none;
+}
