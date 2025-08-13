@@ -13,20 +13,13 @@ import LoginPageInstructor from './Pages/LoginPageInstructor/LoginPage.jsx';
 import RegisterPage from './Pages/RegisterPage/RegisterPage';
 import VerifyYourEmailInstructor from './Pages/VerifyYourEmailPageInstuctor/VerifyYourEmail.jsx';
 import VerifyYourEmailStudent from './Pages/VerifyYourEmailPageStudent/VerifyYourEmail.jsx'; 
-import ForgotPassword from './Pages/ForgotPasswordPage/ForgotPassword.jsx';
+import ForgotPasswordAdmin from './Pages/ForgotPasswordPageAdmin/ForgotPasswordAdmin.jsx';
+import ForgotPasswordInstructor from './Pages/ForgotPasswordPageInstructor/ForgotPasswordInstructor.jsx';
+import ForgotPasswordStudent from './Pages/ForgotPasswordPageStudent/ForgotPasswordStudent.jsx';
 import CreateAccountSuccessStudent from './Pages/CreateAccountSuccessPageStudent/Success.jsx'; 
 import CreateAccountSuccessInstructor from './Pages/CreateAccountSuccessPageInstructor/Success.jsx'; 
 import DashboardLayout from './components/DashboardLayout/index.jsx';
-import CourseProgress from './Pages/CourseProgress/index.jsx';
-import Welcome from './Pages/Welcome/index.jsx';
-import Assignments from './Pages/Assignments/index.jsx';
-import Downloads from './Pages/Downloads/index.jsx';
-import Performance from './Pages/Performance/index.jsx';
-import UpcomingClasses from './Pages/UpcomingClasses/index.jsx';
-
-import DashboardLayout from './components/DashboardLayout';
 import AdminLayout from './components/AdminLayout';
-
 import CourseProgress from './Pages/students/CourseProgress';
 import Welcome from './Pages/students/Welcome';
 import Assignments from './Pages/students/Assignments';
@@ -93,7 +86,9 @@ function App() {
         <Route path="/signup-instructor-3" element={<SignUpPageInstructor3 />} />
         <Route path="/verify-email-student" element={<VerifyYourEmailStudent />} />
          <Route path="/verify-email-instructor" element={<VerifyYourEmailInstructor />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/forgot-password-student" element={<ForgotPasswordStudent />} />
+          <Route path="/forgot-password-admin" element={<ForgotPasswordAdmin />} />
+            <Route path="/forgot-password-instructor" element={<ForgotPasswordInstructor/>} />
         <Route path="/create-account-success-student" element={<CreateAccountSuccessStudent />} />
         <Route path="/create-account-success-instructor" element={<CreateAccountSuccessInstructor />} />
          <Route path="/dashboard" element={<DashboardLayout />}/>

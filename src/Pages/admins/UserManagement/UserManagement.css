@@ -1,0 +1,124 @@
+.user-management-page {
+display: flex;
+flex-direction: column;
+gap: 1.5rem;
+}
+/* --- Page Header --- */
+.page-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.page-header h1 {
+margin: 0;
+color: #2c3e50;
+}
+.add-user-btn {
+background-color: #27ae60;
+color: white;
+border: none;
+border-radius: 8px;
+padding: 0.75rem 1.25rem;
+font-size: 0.95rem;
+font-weight: 500;
+cursor: pointer;
+transition: background-color 0.2s;
+}
+.add-user-btn:hover {
+background-color: #229954;
+}
+/* --- Filter Controls --- */
+.filter-controls {
+display: flex;
+gap: 1.5rem;
+padding: 1.5rem;
+background-color: #fff;
+border-radius: 12px;
+border: 1px solid #e9ecef;
+}
+.search-input {
+flex-grow: 1;
+padding: 0.75rem;
+border: 1px solid #d6eaf8;
+border-radius: 8px;
+font-size: 1rem;
+}
+.role-filter {
+display: flex;
+align-items: center;
+gap: 0.5rem;
+}
+.role-filter label {
+color: #7f8c8d;
+}
+.role-filter select {
+padding: 0.75rem;
+border-radius: 8px;
+border: 1px solid #d6eaf8;
+background-color: #f8f9fa;
+}
+
+.users-table-container {
+background-color: #fff;
+border-radius: 12px;
+overflow-x: auto;
+border: 1px solid #e9ecef;
+}
+.users-table {
+width: 100%;
+border-collapse: collapse;
+}
+.users-table th, .users-table td {
+padding: 1.25rem 1rem;
+text-align: left;
+border-bottom: 1px solid #f1f3f5;
+white-space: nowrap;
+}
+.users-table th {
+background-color: #f8f9fa;
+font-size: 0.875rem;
+text-transform: uppercase;
+color: #7f8c8d;
+}
+.users-table tbody tr:last-child td {
+border-bottom: none;
+}
+/* Status Badge */
+.status-badge {
+padding: 0.25rem 0.75rem;
+border-radius: 12px;
+font-size: 0.8rem;
+font-weight: 600;
+}
+.status-active {
+background-color: #e8f5e9;
+color: #2e7d32;
+}
+.status-suspended {
+background-color: #fff3e0;
+color: #e65100;
+}
+/* Action Buttons */
+.actions-cell {
+display: flex;
+gap: 0.5rem;
+}
+.action-btn {
+border: none;
+padding: 0.5rem 0.8rem;
+border-radius: 6px;
+cursor: pointer;
+font-weight: 500;
+transition: opacity 0.2s;
+}
+.action-btn:hover {
+opacity: 0.8;
+}
+.btn-edit { background-color: #eaf2f8; color: #3498db; }
+.btn-suspend { background-color: #fdebd0; color: #f39c12; }
+.btn-delete { background-color: #fdedec; color: #e74c3c; }
+@media (max-width: 768px) {
+.filter-controls {
+flex-direction: column;
+}
+}

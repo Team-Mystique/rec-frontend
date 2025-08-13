@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './ForgotPassword.css';
+import './ForgotPasswordStudent.css';
 import { FaLock, FaEnvelope, FaArrowLeft, FaInfoCircle } from 'react-icons/fa';
 
 // Reusable Logo Component for consistency
@@ -15,7 +15,7 @@ const Logo = () => (
 );
 
 // --- Main Forgot Password Component ---
-const ForgotPasswordPage = () => {
+const ForgotPasswordPageStudent = () => {
     const [email, setEmail] = useState('');
     const [error, setError] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
@@ -94,7 +94,7 @@ const ForgotPasswordPage = () => {
 
                     <div className="divider-forgot">OR</div>
 
-                    <a href="/login" className="back-link-forgot">
+                    <a href="/login-student" className="back-link-forgot">
                         <FaArrowLeft /> Back to login
                     </a>
 
@@ -110,4 +110,4 @@ const ForgotPasswordPage = () => {
     );
 };
 
-export default ForgotPasswordPage;
+export default ForgotPasswordPageStudent;

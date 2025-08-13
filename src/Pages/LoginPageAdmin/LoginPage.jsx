@@ -99,7 +99,7 @@ const LoginPage = () => {
                                 />
                                 <label htmlFor="rememberMe">Remember me</label>
                             </div>
-                            <a href="/forgot-password">Forgot Password</a>
+                            <a href="/forgot-password-admin">Forgot Password</a>
                         </div>
 
                         <button type="submit" className="login-button">Log in</button>
@@ -110,6 +110,8 @@ const LoginPage = () => {
                     <div className="divider">Or Sign in with</div>
                     <br>
                     </br>
+                    <br>
+                    </br>
 
                     <div className="social-login">
                          <a href="/auth/instagram" className="social-icon instagram"><FaInstagram /></a>
@@ -118,9 +120,7 @@ const LoginPage = () => {
                          <a href="/auth/google" className="social-icon google"><FcGoogle /></a>
                     </div>
 
-                    <p className="signup-link">
-                        Don't have an account? <a href="/signup1">Sign up</a>
-                    </p>
+                   
                 </div>
             </main>
         </div>
