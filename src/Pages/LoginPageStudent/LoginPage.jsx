@@ -104,8 +104,12 @@ const LoginPage = () => {
 
                         <button type="submit" className="login-button">Log in</button>
                     </form>
+                    <br>
+                    </br>
 
                     <div className="divider">Or Sign in with</div>
+                    <br>
+                    </br>
 
                     <div className="social-login">
                          <a href="/auth/instagram" className="social-icon instagram"><FaInstagram /></a>
@@ -115,7 +119,7 @@ const LoginPage = () => {
                     </div>
 
                     <p className="signup-link">
-                        Don't have an account? <a href="/signup1">Sign up</a>
+                        Don't have an account? <a href="/signup-student-1">Sign up</a>
                     </p>
                 </div>
             </main>

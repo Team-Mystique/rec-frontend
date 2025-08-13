@@ -156,7 +156,7 @@ body {
     padding: 15px;
     border: none;
     border-radius: 8px;
-    background-color: #4a69bd;
+    background-color:var(--primary-blue);
     color: white;
     font-size: 1.1em;
     font-weight: bold;
