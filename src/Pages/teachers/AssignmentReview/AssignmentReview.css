@@ -1,0 +1,115 @@
+.main-card {
+  background-color: #eaf2f8;
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid #d6eaf8;
+}
+
+.main-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+}
+
+.main-card-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.main-card-header svg {
+  color: #e67e22; /* Orange for review */
+}
+
+.assignments-list {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.assignment-review-item {
+  background-color: white;
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  align-items: center;
+  gap: 1rem;
+}
+
+.assignment-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.course-color-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.assignment-title {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.assignment-course {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #7f8c8d;
+}
+
+.submission-status {
+  text-align: center;
+}
+
+.submission-count {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.submission-label {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #7f8c8d;
+}
+
+.review-button {
+  background-color: #e67e22;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  justify-self: end;
+}
+
+.review-button:hover {
+  background-color: #d35400;
+}
+
+@media (max-width: 768px) {
+  .assignment-review-item {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    text-align: left;
+  }
+  .submission-status {
+    text-align: left;
+    margin: 0.5rem 0;
+  }
+  .review-button {
+    justify-self: start;
+    width: 100%;
+  }
+}

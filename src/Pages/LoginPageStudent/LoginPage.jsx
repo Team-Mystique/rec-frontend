@@ -99,7 +99,7 @@ const LoginPage = () => {
                                 />
                                 <label htmlFor="rememberMe">Remember me</label>
                             </div>
-                            <a href="/forgot-password">Forgot Password</a>
+                            <a href="/forgot-password-student">Forgot Password</a>
                         </div>
 
                         <button type="submit" className="login-button">Log in</button>

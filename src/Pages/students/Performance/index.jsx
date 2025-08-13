@@ -8,13 +8,13 @@ const Performance = () => {
       courseName: "Calculus I",
       percentage: 64,
       grade: "C",
-      color: "#f1c40f" // Yellow
+      color: "#733e97ff" // Yellow
     },
     {
       courseName: "Human Computer Interaction",
       percentage: 73,
       grade: "B",
-      color: "#f1c40f" // Yellow
+      color: "#2d9162ff" // Yellow
     },
     {
       courseName: "Software Engineering",
@@ -26,14 +26,15 @@ const Performance = () => {
       courseName: "Data Structure And Algorithm",
       percentage: 79,
       grade: "B+",
-      color: "#2ecc71" // Green
+      color: "#accc2eff" // Green
     }
   ];
 
   const getGradeColor = (grade) => {
-    if (grade.includes('A')) return '#27ae60'; // Green
-    if (grade.includes('B')) return '#2980b9'; // Blue
-    if (grade.includes('C')) return '#f39c12'; // Orange
+    if (grade.includes('A')) return '#c0392b'; // Red
+    if (grade.includes('B+')) return '#accc2eff'; // Yellow
+    if (grade.includes('B')) return '#2d9162ff'; // Yellow
+    if (grade.includes('C')) return '#733e97ff'; // Purple
     return '#e74c3c'; // Red for D/F
   }
 

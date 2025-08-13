@@ -1,0 +1,193 @@
+/* --- Main Layout --- */
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  /* Added for smooth transitions */
+  transition: margin-left 0.3s ease-in-out; 
+}
+
+/* --- Sidebar --- */
+.sidebar {
+  width: 260px;
+  background-color: #3b5998;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  position: fixed; /* Changed for responsive behavior */
+  height: 100%;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out;
+}
+
+.sidebar-header {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid #34495e;
+}
+
+.sidebar-logo {
+  height: 32px;
+}
+
+.sidebar-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.sidebar-nav {
+  flex-grow: 1;
+  padding: 1rem 0;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 1.5rem;
+  color: #ecf0f1;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+}
+
+.sidebar-link:hover {
+  background-color: #34495e;
+}
+
+.sidebar-link.active {
+  background-color: #3498db;
+  color: white;
+  font-weight: 500;
+}
+
+.sidebar-icon {
+  font-size: 1.2rem;
+}
+
+/* --- Sidebar Overlay (Mobile) --- */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+/* --- Main Content Area --- */
+.admin-main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: 260px; /* Space for the sidebar */
+  width: calc(100% - 260px);
+  transition: margin-left 0.3s ease-in-out;
+}
+
+/* --- Top Bar --- */
+.admin-topbar {
+  background-color: #fff;
+  height: 64px;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e9ecef;
+  flex-shrink: 0;
+}
+
+.sidebar-toggle-btn {
+  display: none; /* Hidden by default on large screens */
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #2c3e50;
+}
+
+.topbar-search {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #7f8c8d;
+}
+
+.topbar-search input {
+  border: none;
+  font-size: 1rem;
+  padding: 0.5rem;
+  outline: none;
+  width: 250px;
+}
+
+.topbar-profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.admin-user-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: #3498db;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.admin-page-content {
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+/* --- RESPONSIVE STYLES (for screens smaller than 992px) --- */
+@media (max-width: 992px) {
+  .sidebar {
+    transform: translateX(-100%); /* Hide sidebar by default */
+  }
+
+  .admin-main-content {
+    margin-left: 0; /* Main content takes full width */
+    width: 100%;
+  }
+
+  .sidebar-toggle-btn {
+    display: block; /* Show the hamburger button */
+  }
+  
+  .topbar-search {
+    /* Optionally hide search on very small screens */
+  }
+
+  /* When the sidebar should be open on mobile */
+  .admin-layout.sidebar-is-open .sidebar {
+    transform: translateX(0); /* Bring sidebar into view */
+  }
+  
+  .admin-layout.sidebar-is-open .sidebar-overlay {
+    display: block; /* Show the overlay */
+  }
+}
+
+@media (max-width: 600px) {
+  .topbar-profile span {
+    display: none; /* Hide admin name, show only icon */
+  }
+  .topbar-search {
+    display: none; /* Hide search bar completely */
+  }
+  .admin-topbar {
+    justify-content: space-between;
+  }
+  .admin-page-content {
+    padding: 1rem; /* Reduce padding on small screens */
+  }
+}

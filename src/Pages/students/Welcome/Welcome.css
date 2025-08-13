@@ -27,7 +27,7 @@
 .stat-title {
   margin: 0 0 0.5rem 0;
   font-size: 1rem;
-  color: #2c3e50; /* Dark blue-gray text */
+  color: #1f1257; /* Dark blue-gray text */
   font-weight: 500;
 }
 
@@ -35,7 +35,7 @@
 .stat-value {
   margin: 0 0 0.25rem 0;
   font-size: 2.5rem;
-  color: #2c3e50;
+  color: #1f1257;
   font-weight: 700;
   line-height: 1.1;
 }

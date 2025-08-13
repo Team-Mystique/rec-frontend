@@ -1,0 +1,101 @@
+.main-card {
+  background-color: #eaf2f8;
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid #d6eaf8;
+}
+
+.main-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+}
+
+.main-card-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.main-card-header svg {
+  color: #27ae60; /* Green for schedule */
+}
+
+.schedule-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.schedule-item {
+  background-color: white;
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.schedule-info {
+  flex-grow: 1;
+}
+
+.schedule-course-name {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.schedule-course-code {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #7f8c8d;
+}
+
+.schedule-details {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.schedule-time {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #2c3e50;
+  display: block;
+}
+
+.schedule-platform {
+  font-size: 0.875rem;
+  color: #7f8c8d;
+}
+
+.start-class-button {
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.start-class-button:hover {
+  background-color: #229954;
+}
+
+@media (max-width: 600px) {
+  .schedule-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .schedule-details {
+    text-align: left;
+    margin-bottom: 1rem;
+  }
+}
