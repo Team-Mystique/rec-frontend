@@ -164,3 +164,87 @@
     .rise-edu-consult{ font-size:56px }
   }
   
+  /* Add this to your LandingPage.css */
+
+.register-link,
+.login-link {
+  text-decoration: none; /* Removes the underline from links */
+  color: inherit;
+  background-color: #4a69bd;
+  color: white;
+  border: none;
+  border-radius: 30px; /* Pill shape */
+  padding: 18px 25px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Makes the link color the same as its parent */
+}
+/* --- ADD THIS CSS FOR THE NEW BUTTONS --- */
+
+/* Base style for both buttons */
+.btn {
+  /* Positioning - you might need to adjust these to fit your layout */
+  position: absolute; 
+  
+  /* Sizing and Spacing */
+  padding: 12px 24px;
+  
+  /* Text Styling */
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none; /* Removes the default underline from links */
+
+  /* Appearance */
+  border: none;
+  border-radius: 8px; /* Gives the buttons rounded corners */
+  cursor: pointer; /* Changes the cursor to a pointer on hover */
+  
+  /* Smooth Transition for Hover Effect */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover effect for ALL buttons */
+.btn:hover {
+  /* Slightly change the brightness to give feedback */
+  filter: brightness(1.1);
+  /* Make the button slightly larger on hover */
+  transform: scale(1.05); 
+}
+
+/* Active effect for when the button is clicked */
+.btn:active {
+  transform: scale(0.98); /* Briefly shrink the button on click */
+}
+
+
+/* --- SPECIFIC STYLES FOR EACH BUTTON --- */
+
+/* Register Button (assumes a primary action color) */
+.btn-register {
+  /* Use the same positioning as your old .rectangle-2 */
+  top: 30px; 
+  left: 1050px;
+  background-color: #007bff; /* A nice blue for the primary button */
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+/* Login Button (assumes a secondary action color) */
+.btn-login {
+  /* Use the same positioning as your old .rectangle-5 */
+  top: 30px;
+  left: 1200px;
+  background-color: #6c757d; /* A gray for the secondary button */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* 
+NOTE: You should REMOVE or comment out the old CSS rules 
+that styled .rectangle-2, .text-wrapper-4, .rectangle-5, and .text-wrapper-7
+to avoid conflicts. 
+*/

@@ -40,7 +40,7 @@ import CourseManagement from './Pages/admins/CourseManagement';
 import Analytics from './Pages/admins/Analytics'; 
 import Settings from './Pages/admins/Settings';
 import LandingPage from './Pages/LandingPage/LandingPage.jsx';
-
+import AboutUsPage from './Pages/AboutUsPage/AboutUsPage.jsx';
 
 
 function App() {
@@ -101,8 +101,7 @@ function App() {
           <Route path="/downloads" element={<Downloads />} />
           <Route path="/performance" element={<Performance />} />
           <Route path="/upcoming-classes" element={<UpcomingClasses />} />
-          
-
+          <Route path="/about-us" element={<AboutUsPage/>}/>
       </Routes>
     </Router>
   );
