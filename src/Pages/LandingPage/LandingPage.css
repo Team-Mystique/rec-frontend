@@ -51,6 +51,7 @@
     font-weight:bold; font-size:16px; color:#0b0b0b; white-space:nowrap;
     margin-left:200px;
     margin-right: 20px;
+    
 
   }
   .text-wrapper{   left:120px; }  /* Home */
@@ -65,6 +66,11 @@
     height:40px; min-width:92px; padding:0 16px;
     border-radius:12px;
     background:var(--deep);
+  }
+  .text-wrapper:hover,.div:hover,.text-wrapper-2:hover,.text-wrapper-3:hover{
+    text-decoration: underline;
+    color: #0b2b7a;
+    cursor: pointer;
   }
   .rectangle-5{ right:170px; }            /* login background */
   .rectangle-2{ right:38px; background:var(--deep-2);} /* register background */
