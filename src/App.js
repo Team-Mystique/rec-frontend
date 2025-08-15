@@ -42,6 +42,7 @@ import Settings from './Pages/admins/Settings';
 import LandingPage from './Pages/LandingPage/LandingPage.jsx';
 
 
+
 function App() {
   // Define user data and navigation links
   const studentData = {
@@ -100,6 +101,8 @@ function App() {
           <Route path="/downloads" element={<Downloads />} />
           <Route path="/performance" element={<Performance />} />
           <Route path="/upcoming-classes" element={<UpcomingClasses />} />
+          
+
       </Routes>
     </Router>
   );
