@@ -16,16 +16,6 @@ import VerifyYourEmailStudent from './Pages/VerifyYourEmailPageStudent/VerifyYou
 import ForgotPasswordAdmin from './Pages/ForgotPasswordPageAdmin/ForgotPasswordAdmin.jsx';
 import ForgotPasswordInstructor from './Pages/ForgotPasswordPageInstructor/ForgotPasswordInstructor.jsx';
 import ForgotPasswordStudent from './Pages/ForgotPasswordPageStudent/ForgotPasswordStudent.jsx';
-import ForgotPassword from './Pages/ForgotPasswordPage/ForgotPassword.jsx';
-import CreateAccountSuccess from './Pages/CreateAccountSuccessPage/Success.jsx'; 
-import DashboardLayout from './components/DashboardLayout';
-import CourseProgress from './Pages/CourseProgress/index.jsx';
-import Welcome from './Pages/Welcome';
-import Assignments from './Pages/Assignments';
-import Downloads from './Pages/Downloads';
-import Performance from './Pages/Performance/index.jsx';
-import UpcomingClasses from './Pages/UpcomingClasses/index.jsx';
-import LandingPage from './Pages/LandingPage/LandingPage.jsx';
 import CreateAccountSuccessStudent from './Pages/CreateAccountSuccessPageStudent/Success.jsx'; 
 import CreateAccountSuccessInstructor from './Pages/CreateAccountSuccessPageInstructor/Success.jsx'; 
 import DashboardLayout from './components/DashboardLayout/index.jsx';
@@ -49,6 +39,7 @@ import UserManagement from './Pages/admins/UserManagement';
 import CourseManagement from './Pages/admins/CourseManagement';
 import Analytics from './Pages/admins/Analytics'; 
 import Settings from './Pages/admins/Settings';
+import LandingPage from './Pages/LandingPage/LandingPage.jsx';
 
 
 function App() {
@@ -84,7 +75,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<RegisterPage />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/register" element={<RegisterPage />} />
         <Route path="/login-admin" element={<LoginPageAdmin />} />
          <Route path="/login-student" element={<LoginPageStudent />} />
           <Route path="/login-instructor" element={<LoginPageInstructor />} />
@@ -99,10 +91,6 @@ function App() {
         <Route path="/forgot-password-student" element={<ForgotPasswordStudent />} />
           <Route path="/forgot-password-admin" element={<ForgotPasswordAdmin />} />
             <Route path="/forgot-password-instructor" element={<ForgotPasswordInstructor/>} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/create-account-success" element={<CreateAccountSuccess />} />
-         <Route path="/dashboard" element={<DashboardLayout />}/>
-          <Route index element={<Welcome />} />
         <Route path="/create-account-success-student" element={<CreateAccountSuccessStudent />} />
         <Route path="/create-account-success-instructor" element={<CreateAccountSuccessInstructor />} />
          <Route path="/dashboard" element={<DashboardLayout />}/>
@@ -112,13 +100,9 @@ function App() {
           <Route path="/downloads" element={<Downloads />} />
           <Route path="/performance" element={<Performance />} />
           <Route path="/upcoming-classes" element={<UpcomingClasses />} />
-          <Route path="/landing" element={<LandingPage />} />
-
       </Routes>
     </Router>
   );
 }
 
 export default App;
-
-
