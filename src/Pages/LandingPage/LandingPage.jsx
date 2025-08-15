@@ -42,9 +42,9 @@ export const LandingPage = () => {
 
                     <div className="text-wrapper-5">Get Started</div>
 
-                    <div className="rectangle-4" />
+                    
 
-                    <div className="text-wrapper-6">Learn More</div>
+                    
 
                     <div className="rectangle-5" />
 
