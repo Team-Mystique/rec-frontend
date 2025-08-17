@@ -1,250 +1,235 @@
-/* LandingPage.css – tuned to match the screenshot layout exactly and stay responsive */
+/* --- Global Styles & Fonts --- */
+body {
+    margin: 0;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
 
-/* ---------- Base ---------- */
-:root{
-    --nav-h:72px;
-    --ink:#0b1026;
-    --nav:#ffffff;
-    --deep:#0d1b4c;       /* navbar button blue */
-    --deep-2:#0b2b7a;     /* register button blue */
-    --cta:#a20e4d;        /* Get Started */
-    --cta-2:#1b1b2b;      /* Learn More */
-  }
-  
-  *{margin:0;padding:0;box-sizing:border-box}
-  .landing-page{
-    min-height:100vh;
-    background:#e9edf6;
-    display:flex;
-    justify-content:center;
-    font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
-  }
-  .overlap-group-wrapper{width:100%}
-  .overlap-group{
-    position:relative;
-    min-height:100vh;
-    overflow:hidden;
-    border-radius:12px;
-    border:1px solid rgba(0,0,0,.08);
-    background:#cfd7ea;
-  }
-  
-  /* ---------- Top Nav Bar ---------- */
-  .rectangle{
-    position:absolute; inset:0 0 auto 0;
-    height:var(--nav-h);
-    background:var(--nav);
-    border-radius:12px 12px 0 0;
-    box-shadow:0 2px 10px rgba(0,0,0,.08);
-    z-index:20;
-  }
-  .logo{
-    position:absolute; z-index:30;
-    top:5%; left:18px; transform:translateY(-50%);
-    height:34px;
-  }
-  
-  /* center nav links (Home, Courses, About us, Contact us) */
-  .text-wrapper,.div,.text-wrapper-2,.text-wrapper-3{
-    position:absolute; z-index:30;
-    top:5%; transform:translateY(-50%);
-    font-weight:bold; font-size:16px; color:#0b0b0b; white-space:nowrap;
-    margin-left:250px;
-    margin-right: 20px;
-    
+/* --- Header / Navigation Bar --- */
+.header {
+    background-color: #ffffff;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
 
-  }
-  .text-wrapper{   left:120px; }  /* Home */
-  .div{            left:205px; }  /* Courses */
-  .text-wrapper-2{ left:305px; }  /* About us */
-  .text-wrapper-3{ left:420px; }  /* Contact us */
-  
-  /* right-side buttons (Log in, Register) */
-  .rectangle-5,.rectangle-2{
-    position:absolute; z-index:30;
-    top:5%; transform:translateY(-50%);
-    height:40px; min-width:92px; padding:0 16px;
-    border-radius:12px;
-    background:var(--deep);
-  }
-  .text-wrapper:hover,.div:hover,.text-wrapper-2:hover,.text-wrapper-3:hover{
-    text-decoration: underline;
-    color: #0b2b7a;
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 24px;
+}
+
+.navbar-logo img {
+    height: 40px;
     cursor: pointer;
-  }
-  .rectangle-5{ right:170px; }            /* login background */
-  .rectangle-2{ right:38px; background:var(--deep-2);} /* register background */
-  
-  .text-wrapper-7,.text-wrapper-4{
-    position:absolute; z-index:35;
-    top:5%; transform:translateY(-50%);
-    font-weight:600; font-size:14px; color:#fff; white-space:nowrap; pointer-events:none;
-    padding: 5px 7px 7px ;
-  }
-  .text-wrapper-7{ right:196px; } /* “Log in” centered on .rectangle-5 */
-  .text-wrapper-4{ right:54px;  } /* “Register” centered on .rectangle-2 */
-  
-  /* ---------- Hero (image + gradient overlay) ---------- */
-  .overjoyed-successful{
-    position:absolute; z-index:0;
-    top:var(--nav-h); left:0;
-    width:100%; height:calc(100vh - var(--nav-h));
-    object-fit:cover; object-position:center;
-  }
-  .overlap-group::after{
-    content:""; position:absolute; z-index:1;
-    top:var(--nav-h); left:0; right:0; bottom:0;
-    /* subtle blue wash + darkening like the screenshot */
-    background:linear-gradient(180deg, rgba(64,110,200,.25) 0%, rgba(20,29,76,.55) 55%, rgba(20,29,76,.78) 100%);
-  }
-  
-  /* ---------- Hero Headline ---------- */
-  .rise-edu-consult{
-    position:absolute; z-index:40;
-    left:24px; bottom:128px;
-    max-width:min(920px,86vw);
-    color:#fff; font-weight:800; line-height:1.1; letter-spacing:.2px;
-    font-size:clamp(28px,5vw,48px);
-    text-shadow:0 2px 12px rgba(0,0,0,.35);
-  }
-  
-  /* ---------- CTA Buttons ---------- */
-  .rectangle-3{
-    position:absolute; z-index:40; bottom:56px; height:46px; min-width:132px;
-    border-radius:10px;
-  }
-  .rectangle-3{ left:24px;  background:var(--cta);}   /* Get Started */
-  
-  
-  .text-wrapper-5,.text-wrapper-6{
-    position:absolute; z-index:45; bottom:69px;
-    font-weight:700; font-size:14px; color:#fff; white-space:nowrap; pointer-events:none;
-  }
-  .text-wrapper-5{ left:52px; }  /* label on .rectangle-3 */
-  .text-wrapper-6{ left:204px; } /* label on .rectangle-4 */
-  
-  /* ---------- Hover (desktop polish) ---------- */
-  .rectangle-5:hover,.rectangle-2:hover{ filter:brightness(1.06); }
-  .rectangle-3:hover{ filter:brightness(1.05); }
-
-  
-  /* ---------- Responsiveness ---------- */
-  @media (max-width: 1024px){
-    .text-wrapper,.div,.text-wrapper-2,.text-wrapper-3{ font-size:15px; }
-    .text-wrapper{left:108px}.div{left:192px}.text-wrapper-2{left:290px}.text-wrapper-3{left:400px}
-  }
-  
-  @media (max-width: 900px){
-    /* hide center links to keep the right buttons like the screenshot’s compact state */
-    .text-wrapper,.div,.text-wrapper-2,.text-wrapper-3{ display:none; }
-    .rectangle-5{ right:150px } .text-wrapper-7{ right:176px }
-  }
-  
-  @media (max-width: 768px){
-    :root{ --nav-h:64px; }
-    .logo{height:28px}
-    .rise-edu-consult{ bottom:112px; left:20px; font-size:clamp(24px,6vw,40px); max-width:88vw; }
-    .rectangle-3{ left:20px } .text-wrapper-5{ left:46px }
-    .text-wrapper-6{ left:198px }
-  }
-  
-  @media (max-width: 540px){
-    .rectangle-5,.rectangle-2{ height:36px; min-width:86px }
-    .rectangle-5{ right:120px } .text-wrapper-7{ right:146px; font-size:13px }
-    .rectangle-2{ right:16px }  .text-wrapper-4{ right:42px;  font-size:13px }
-  
-    /* stack CTAs full-width */
-    .rectangle-3{ left:16px; right:16px; min-width:unset; }
-    .rectangle-3{ bottom:72px } 
-    .text-wrapper-5{ left:calc(50% - 42px); bottom:86px }  /* optically centered */
-    .text-wrapper-6{ left:calc(50% - 44px); bottom:30px }
-  }
-  
-  @media (min-width:1600px){
-    .rise-edu-consult{ font-size:56px }
-  }
-  
-  /* Add this to your LandingPage.css */
-
-.register-link,
-.login-link {
-  text-decoration: none; /* Removes the underline from links */
-  color: inherit;
-  background-color: #4a69bd;
-  color: white;
-  border: none;
-  border-radius: 30px; /* Pill shape */
-  padding: 18px 25px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Makes the link color the same as its parent */
-}
-/* --- ADD THIS CSS FOR THE NEW BUTTONS --- */
-
-/* Base style for both buttons */
-.btn {
-  /* Positioning - you might need to adjust these to fit your layout */
-  position: absolute; 
-  
-  /* Sizing and Spacing */
-  padding: 12px 24px;
-  
-  /* Text Styling */
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  text-align: center;
-  text-decoration: none; /* Removes the default underline from links */
-
-  /* Appearance */
-  border: none;
-  border-radius: 8px; /* Gives the buttons rounded corners */
-  cursor: pointer; /* Changes the cursor to a pointer on hover */
-  
-  /* Smooth Transition for Hover Effect */
-  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Hover effect for ALL buttons */
-.btn:hover {
-  /* Slightly change the brightness to give feedback */
-  filter: brightness(1.1);
-  /* Make the button slightly larger on hover */
-  transform: scale(1.05); 
+.nav-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    text-align: center;
 }
 
-/* Active effect for when the button is clicked */
-.btn:active {
-  transform: scale(0.98); /* Briefly shrink the button on click */
+.nav-item {
+    height: 80px;
 }
 
-
-/* --- SPECIFIC STYLES FOR EACH BUTTON --- */
-
-/* Register Button (assumes a primary action color) */
-.btn-register {
-  /* Use the same positioning as your old .rectangle-2 */
-  top: 30px; 
-  left: 1050px;
-  background-color: #007bff; /* A nice blue for the primary button */
-  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+.nav-links {
+    color: #333;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 0 1rem;
+    height: 100%;
+    cursor: pointer;
+    font-weight: 600;
 }
 
-/* Login Button (assumes a secondary action color) */
+.nav-links:hover {
+    color: #0d6efd; /* Primary blue for hover */
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-btn {
+    padding: 8px 22px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease-out;
+}
+
 .btn-login {
-  /* Use the same positioning as your old .rectangle-5 */
-  top: 30px;
-  left: 1200px;
-  background-color: #6c757d; /* A gray for the secondary button */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background-color: #0d6efd;
 }
 
-/* 
-NOTE: You should REMOVE or comment out the old CSS rules 
-that styled .rectangle-2, .text-wrapper-4, .rectangle-5, and .text-wrapper-7
-to avoid conflicts. 
-*/
+.btn-register {
+    background-color: #192a56; /* Darker blue */
+}
+
+.btn-login:hover, .btn-register:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* --- Mobile Menu Styles --- */
+.menu-icon {
+    display: none;
+}
+
+@media screen and (max-width: 960px) {
+    .nav-menu {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 90vh;
+        position: absolute;
+        top: 80px;
+        left: -100%;
+        opacity: 1;
+        transition: all 0.5s ease;
+        background: #fff;
+    }
+
+    .nav-menu.active {
+        left: 0;
+        opacity: 1;
+        transition: all 0.5s ease;
+        z-index: 1;
+    }
+
+    .nav-item {
+        width: 100%;
+        height: auto;
+    }
+    
+    .nav-links {
+        text-align: center;
+        padding: 2rem;
+        width: 100%;
+        display: table;
+    }
+
+    .nav-buttons {
+        flex-direction: column;
+        width: 80%;
+        margin: 20px auto;
+    }
+
+    .nav-btn {
+        width: 100%;
+        padding: 12px;
+        border-radius: 8px;
+    }
+    
+    .menu-icon {
+        display: block;
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: #333;
+    }
+}
+
+
+/* --- Hero Section --- */
+.hero-container {
+    background: url('./OverJoyed.png') center center/cover no-repeat;
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+/* Dark overlay for text readability */
+.hero-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+    position: relative; /* To appear above the overlay */
+    z-index: 2;
+    padding: 0 20px;
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero-buttons {
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.hero-btn {
+    padding: 12px 30px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-get-started {
+    background-color: #990033; /* Maroon */
+    color: white;
+}
+
+.btn-learn-more {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+.hero-btn:hover {
+    transform: scale(1.05);
+}
+
+@media screen and (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .hero-btn {
+        width: 100%;
+    }
+}

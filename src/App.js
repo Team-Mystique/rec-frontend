@@ -41,6 +41,7 @@ import Analytics from './Pages/admins/Analytics';
 import Settings from './Pages/admins/Settings';
 import LandingPage from './Pages/LandingPage/LandingPage.jsx';
 import AboutUsPage from './Pages/AboutUsPage/AboutUsPage.jsx';
+import CourseCatalog from './Pages/CourseCatalog/CourseCatalog.jsx';
 
 
 function App() {
@@ -94,14 +95,44 @@ function App() {
             <Route path="/forgot-password-instructor" element={<ForgotPasswordInstructor/>} />
         <Route path="/create-account-success-student" element={<CreateAccountSuccessStudent />} />
         <Route path="/create-account-success-instructor" element={<CreateAccountSuccessInstructor />} />
-         <Route path="/dashboard" element={<DashboardLayout />}/>
-          <Route path="/welcome" element={<Welcome />} />
-          <Route path='/assignments' element={<Assignments />} />
-          <Route path="/course-progress" element={<CourseProgress />} />
-          <Route path="/downloads" element={<Downloads />} />
-          <Route path="/performance" element={<Performance />} />
-          <Route path="/upcoming-classes" element={<UpcomingClasses />} />
-          <Route path="/about-us" element={<AboutUsPage/>}/>
+        <Route path="/about-us" element={<AboutUsPage />} />
+        <Route path="/course-catalog" element={<CourseCatalog />} />
+
+          
+           {/* Student Dashboard Routes */}
+        <Route path="/students" element={<DashboardLayout {...studentData} />}>
+          <Route index element={<Welcome />} />
+          <Route path="/students/assignments" element={<Assignments />} />
+          <Route path="/students/course-progress" element={<CourseProgress />} />
+          <Route path="/students/downloads" element={<Downloads />} />
+          <Route path="/students/performance" element={<Performance />} />
+          <Route path="/students/upcoming-classes" element={<UpcomingClasses />} />
+        </Route>
+
+        {/* Teacher Dashboard Routes */}
+        <Route path="/teachers" element={<DashboardLayout {...teacherData} />}>
+          <Route index element={<TeacherWelcome />} />
+          <Route path="/teachers/assignments" element={<AssignmentReview />} />
+          <Route path="/teachers/schedule" element={<ClassSchedule />} />
+
+          <Route path="/teachers/content" element={<ContentUpload />} />
+          <Route path="/teachers/performance" element={<StudentPerformance />} />
+          <Route path="/teachers/announcements" element={<Announcements />} />
+        </Route>
+
+
+        {/* Admin Dashboard Routes */}
+        <Route path="/admins" element={<AdminLayout/>}>
+          <Route index element={<AdminWelcome />} />
+          <Route path="users" element={<UserManagement />} />
+          <Route path="courses" element={<CourseManagement />} />
+          <Route path="analytics" element={<Analytics />} />
+          <Route path="settings" element={<Settings />} />
+        </Route>
+        
+
+
+
       </Routes>
     </Router>
   );
