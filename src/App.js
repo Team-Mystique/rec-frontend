@@ -124,10 +124,10 @@ function App() {
         {/* Admin Dashboard Routes */}
         <Route path="/admins" element={<AdminLayout/>}>
           <Route index element={<AdminWelcome />} />
-          <Route path="users" element={<UserManagement />} />
-          <Route path="courses" element={<CourseManagement />} />
-          <Route path="analytics" element={<Analytics />} />
-          <Route path="settings" element={<Settings />} />
+          <Route path="/admins/users" element={<UserManagement />} />
+          <Route path="/admins/courses" element={<CourseManagement />} />
+          <Route path="/admins/analytics" element={<Analytics />} />
+          <Route path="/admins/settings" element={<Settings />} />
         </Route>
         
 

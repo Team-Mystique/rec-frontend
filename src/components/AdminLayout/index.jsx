@@ -31,10 +31,10 @@ const AdminLayout = () => {
 
   const adminNavItems = [
     { path: '/admins', label: 'Dashboard', icon: '🏠' },
-    { path: "users", label: 'User Management', icon: '👥' },
-    { path: "courses", label: 'Course Management', icon: '📚' },
-    { path: "analytics", label: 'Analytics', icon: '📊' },
-    { path: "settings", label: 'Settings', icon: '⚙️' },
+    { path: "/admins/users", label: 'User Management', icon: '👥' },
+    { path: "/admins/courses", label: 'Course Management', icon: '📚' },
+    { path: "/admins/analytics", label: 'Analytics', icon: '📊' },
+    { path: "/admins/settings", label: 'Settings', icon: '⚙️' },
   ];
 
   return (
