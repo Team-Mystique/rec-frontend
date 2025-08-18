@@ -4,7 +4,7 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #4a69bd, #1e3a8a);
+    background-color: white;
     color: #333;
   }
   
@@ -41,11 +41,15 @@ body {
   }
   
   .nav a {
-    margin-left: 20px;
-    text-decoration: none;
+   text-decoration: none;
     color: #333;
-    font-weight: 500;
+    font-weight: bold;
     transition: color 0.3s;
+    width:100px;
+    margin-left: 200px;
+    
+    
+    
   }
   
   .nav a:hover {
@@ -54,15 +58,22 @@ body {
   
   /* Hero Section */
   .hero {
-    background: url('AboutUsImage.png') no-repeat center center/cover;
+    background: url('AboutUsImage.png') no-repeat center/cover;
     color: white;
     text-align: center;
     padding: 5rem 1rem;
+    height: 500px;
+    
+    
+    
   }
   
   .hero-text h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
+    margin-top: 250px;
+    
+    
   }
   
   /* Sections */
@@ -75,34 +86,39 @@ body {
   .services h2, .purpose h2, .objectives h2 {
     text-align: center;
     margin-bottom: 1.5rem;
-    color: #0056b3;
+    color: #3273d3;
   }
   
   .services ul, .objectives ul {
     list-style: none;
     padding: 0;
+    color: white;
+    font-weight: 150px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   }
   
   .services li, .objectives li {
-    background-color: #ffffff;
-    margin-bottom: 10px;
+    background-color:#3e8cdf;
+    margin-bottom: 0px;
     padding: 1rem;
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    margin-bottom: 5px;
   }
   
   .purpose p {
     background-color: #0056b3;
-    color: white;
+    color: rgb(255, 255, 255);
     padding: 2rem;
-    border-radius: 5px;
+    border-radius:5px;
     text-align: center;
   }
   
   /* Footer */
   .footer {
-    background-color: #343a40;
-    color: white;
+    background-color: #535252;
+    color: rgb(241, 234, 234);
     padding: 1rem 2rem;
   }
   
