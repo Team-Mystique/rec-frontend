@@ -30,7 +30,7 @@ const AdminLayout = () => {
   }, [location]);
 
   const adminNavItems = [
-    { path: '/', label: 'Dashboard', icon: '🏠' },
+    { path: '/admins', label: 'Dashboard', icon: '🏠' },
     { path: "users", label: 'User Management', icon: '👥' },
     { path: "courses", label: 'Course Management', icon: '📚' },
     { path: "analytics", label: 'Analytics', icon: '📊' },
