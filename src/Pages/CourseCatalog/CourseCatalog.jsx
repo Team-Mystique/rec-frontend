@@ -1,27 +1,61 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import './CourseCatalog.css';
 import { FaTh, FaThList, FaSearch, FaStar, FaFilter, FaTimes } from 'react-icons/fa';
-import { MockCourse } from './MockCourse/MockCourse'; // Import your mock data
-import Pagination from './Pagination/Pagination'; // Assuming you have a Pagination component
-import FilterSidebar from './FilterSidebar/FilterSidebar'; // Assuming you have a FilterSidebar component
+import { MockCourse } from './MockCourse/MockCourse';
+import FilterSidebar from './FilterSidebar/FilterSidebar';
 
-// Reusable Logo Component
-const Logo = () => (
-    <div className="logo-container-catalog">
-        <img src="Logo.png" alt="Logo" className="logo" />
+// --- Helper Hook for Debouncing (to improve search performance) ---
+const useDebounce = (value, delay) => {
+    const [debouncedValue, setDebouncedValue] = useState(value);
+
+    useEffect(() => {
+        const handler = setTimeout(() => {
+            setDebouncedValue(value);
+        }, delay);
+        
+        // Cleanup the timeout if value changes before delay is over
+        return () => {
+            clearTimeout(handler);
+        };
+    }, [value, delay]);
+
+    return debouncedValue;
+};
+
+// --- Child Component for displaying a single course ---
+const CourseCard = ({ course, viewMode }) => (
+    <div className={`course-card ${viewMode}`}>
+        <img src={course.imageUrl} alt={course.title} className="course-image" />
+        <div className="course-details">
+            <span className="course-category">{course.category}</span>
+            <h3 className="course-title">{course.title}</h3>
+            <p className="course-instructor">By {course.instructor}</p>
+            <div className="course-meta">
+                <span className="course-rating"><FaStar /> {course.rating}</span>
+                <span className="course-level">{course.level}</span>
+                <span className="course-duration">{course.durationHours} hours</span>
+            </div>
+            <div className="course-price-enroll">
+                <span className="course-price">{course.price === 0 ? 'Free' : `$${course.price}`}</span>
+                <button className="enroll-button">View Details</button>
+            </div>
+        </div>
     </div>
 );
 
 // --- Main Catalog Component ---
+
+const COURSES_PER_PAGE = 9;
+
 const CourseCatalog = () => {
-    // State Management
+    // --- State Management ---
     const [courses, setCourses] = useState([]);
-    const [displayedCourses, setDisplayedCourses] = useState([]);
     const [viewMode, setViewMode] = useState('grid');
-    const [searchTerm, setSearchTerm] = useState('');
     const [sortBy, setSortBy] = useState('popularity');
     const [currentPage, setCurrentPage] = useState(1);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    
+    const [searchTerm, setSearchTerm] = useState('');
     const [filters, setFilters] = useState({
         category: [],
         level: '',
@@ -29,22 +63,22 @@ const CourseCatalog = () => {
         duration: [],
     });
 
-    const COURSES_PER_PAGE = 9;
+    const debouncedSearchTerm = useDebounce(searchTerm, 300); // 300ms debounce delay
 
-    // Fetch courses on initial load
+    // --- Data Fetching & Processing ---
+
     useEffect(() => {
         setCourses(MockCourse);
     }, []);
-    
-    // This complex memoized value recalculates the course list only when dependencies change
+
     const filteredAndSortedCourses = useMemo(() => {
         let result = [...courses];
 
-        // Filtering logic
-        if (searchTerm) {
+        // Filtering Logic
+        if (debouncedSearchTerm) {
             result = result.filter(course =>
-                course.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                course.instructor.toLowerCase().includes(searchTerm.toLowerCase())
+                course.title.toLowerCase().includes(debouncedSearchTerm.toLowerCase()) ||
+                course.instructor.toLowerCase().includes(debouncedSearchTerm.toLowerCase())
             );
         }
         if (filters.category.length) {
@@ -67,45 +101,42 @@ const CourseCatalog = () => {
             });
         }
         
-        // Sorting logic
+        // Sorting Logic
         switch (sortBy) {
             case 'rating': result.sort((a, b) => b.rating - a.rating); break;
             case 'date': result.sort((a, b) => new Date(b.dateAdded) - new Date(a.dateAdded)); break;
-            case 'price_asc': result.sort((a, b) => a.price - b.price); break;
+            case 'price_asc': result.sort((a, b) => a.price - a.price); break;
             case 'price_desc': result.sort((a, b) => b.price - a.price); break;
             case 'popularity':
             default: result.sort((a, b) => b.enrolled - a.enrolled); break;
         }
 
         return result;
-    }, [courses, searchTerm, filters, sortBy]);
-    
-    // Effect for pagination
-    useEffect(() => {
+    }, [courses, debouncedSearchTerm, filters, sortBy]);
+
+    const displayedCourses = useMemo(() => {
         const startIndex = (currentPage - 1) * COURSES_PER_PAGE;
-        const paginatedCourses = filteredAndSortedCourses.slice(startIndex, startIndex + COURSES_PER_PAGE);
-        setDisplayedCourses(paginatedCourses);
+        return filteredAndSortedCourses.slice(startIndex, startIndex + COURSES_PER_PAGE);
     }, [currentPage, filteredAndSortedCourses]);
 
-    // Reset page to 1 when filters change
     useEffect(() => {
         setCurrentPage(1);
-    }, [searchTerm, filters, sortBy]);
+    }, [debouncedSearchTerm, filters, sortBy]);
 
-    // Handlers
+    // --- Handlers ---
+    
     const handleFilterChange = (e) => {
         const { name, value, type, checked } = e.target;
-        
         setFilters(prev => {
-            if (type === 'checkbox') {
-                 const list = prev[name] ? [...prev[name]] : [];
-                 if (checked) {
+            if (name === 'category' || name === 'duration') {
+                const list = prev[name] ? [...prev[name]] : [];
+                if (checked) {
                     list.push(value);
-                 } else {
+                } else {
                     const index = list.indexOf(value);
                     if (index > -1) list.splice(index, 1);
-                 }
-                 return { ...prev, [name]: list };
+                }
+                return { ...prev, [name]: list };
             }
             return { ...prev, [name]: value };
         });
@@ -113,56 +144,37 @@ const CourseCatalog = () => {
 
     const totalPages = Math.ceil(filteredAndSortedCourses.length / COURSES_PER_PAGE);
 
+    // --- JSX Rendering ---
     return (
         <div className="catalog-page">
-            <header className="catalog-header">
-                <Logo />
-                <div className="search-bar-container">
+            
+            <div className="catalog-hero">
+                <img src="Logo.png" alt="Rise Edu Consult Banner" className="hero-banner-image" />
+                
+                <div className="hero-search-container">
                     <FaSearch className="search-icon" />
                     <input 
                         type="text" 
-                        placeholder="Search for courses, instructors..." 
+                        placeholder="Search for courses..." 
                         value={searchTerm}
                         onChange={e => setSearchTerm(e.target.value)}
                     />
                 </div>
-            </header>
-            
-            <div className="catalog-main-content">
-                {/* --- Filter Sidebar --- */}
-                <aside className={`filter-sidebar ${isSidebarOpen ? 'open' : ''}`}>
-                    <div className="sidebar-header">
-                        <h3>Filters</h3>
-                        <button onClick={() => setIsSidebarOpen(false)} className="close-sidebar-btn"><FaTimes /></button>
-                    </div>
-                    {/* Category */}
-                    <h4>Category</h4>
-                    {['Technology', 'Business', 'Data Science', 'Arts'].map(cat => (
-                         <div key={cat}><input type="checkbox" name="category" value={cat} onChange={handleFilterChange} /> {cat}</div>
-                    ))}
-                    {/* Level */}
-                    <h4>Level</h4>
-                    {['Beginner', 'Intermediate', 'Advanced'].map(lvl => (
-                         <div key={lvl}><input type="radio" name="level" value={lvl} onChange={handleFilterChange} checked={filters.level === lvl}/> {lvl}</div>
-                    ))}
-                    <button onClick={() => setFilters(f => ({ ...f, level: '' }))}>Clear Level</button>
-                     {/* Price */}
-                    <h4>Price</h4>
-                    <div><input type="radio" name="price" value="all" onChange={handleFilterChange} checked={filters.price === 'all'} /> All</div>
-                    <div><input type="radio" name="price" value="free" onChange={handleFilterChange} checked={filters.price === 'free'} /> Free</div>
-                    <div><input type="radio" name="price" value="paid" onChange={handleFilterChange} checked={filters.price === 'paid'} /> Paid</div>
-                    {/* Duration */}
-                    <h4>Duration</h4>
-                    <div><input type="checkbox" name="duration" value="short" onChange={handleFilterChange} /> Less than 5 hours</div>
-                    <div><input type="checkbox" name="duration" value="medium" onChange={handleFilterChange} /> 5 - 20 hours</div>
-                    <div><input type="checkbox" name="duration" value="long" onChange={handleFilterChange} /> 20+ hours</div>
-                </aside>
+            </div>
 
-                {/* --- Course Display Area --- */}
+            <div className="catalog-main-content">
+                <FilterSidebar 
+                    isOpen={isSidebarOpen}
+                    onClose={() => setIsSidebarOpen(false)}
+                    filters={filters}
+                    onFilterChange={handleFilterChange}
+                    onClearLevel={() => setFilters(f => ({ ...f, level: '' }))}
+                />
+
                 <main className="course-display-area">
                     <div className="catalog-controls">
                         <div className="breadcrumbs-and-count">
-                           <p className="breadcrumbs">Home &gt; Courses {filters.category.length ? `> ${filters.category[0]}` : ''}</p>
+                           <p className="breadcrumbs">Home &gt; Courses</p>
                            <p className="course-count">{filteredAndSortedCourses.length} courses found</p>
                         </div>
                         <div className="sort-and-view">
@@ -181,7 +193,6 @@ const CourseCatalog = () => {
                         </div>
                     </div>
 
-                    {/* Course Cards Grid/List */}
                     <div className={`course-list ${viewMode}`}>
                        {displayedCourses.length > 0 ? (
                            displayedCourses.map(course => <CourseCard key={course.id} course={course} viewMode={viewMode} />)
@@ -190,7 +201,6 @@ const CourseCatalog = () => {
                        )}
                     </div>
                     
-                     {/* Pagination Controls */}
                     {totalPages > 1 && (
                         <div className="pagination-controls">
                             <button onClick={() => setCurrentPage(p => Math.max(p - 1, 1))} disabled={currentPage === 1}>Prev</button>
@@ -203,27 +213,5 @@ const CourseCatalog = () => {
         </div>
     );
 };
-
-// --- Child Component for a single course card ---
-const CourseCard = ({ course, viewMode }) => (
-    <div className={`course-card ${viewMode}`}>
-        <img src={course.imageUrl} alt={course.title} className="course-image" />
-        <div className="course-details">
-            <span className="course-category">{course.category}</span>
-            <h3 className="course-title">{course.title}</h3>
-            <p className="course-instructor">By {course.instructor}</p>
-            <div className="course-meta">
-                <span className="course-rating"><FaStar /> {course.rating}</span>
-                <span className="course-level">{course.level}</span>
-                <span className="course-duration">{course.durationHours} hours</span>
-            </div>
-            <div className="course-price-enroll">
-                <span className="course-price">{course.price === 0 ? 'Free' : `$${course.price}`}</span>
-                <button className="enroll-button">View Details</button>
-            </div>
-        </div>
-    </div>
-);
-
 
 export default CourseCatalog;
