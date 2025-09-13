@@ -12,7 +12,7 @@ const CourseManagement = () => {
     { id: 6, title: 'Linear Algebra', code: 'MATH221', teacher: 'Dr. Emily Carter', students: 0, status: 'Archived' },
   ];
 
-  const [courses, setCourses] = useState(initialCourses);
+  const [courses] = useState(initialCourses);
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('All');
 

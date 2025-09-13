@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import './CourseCatalog.css';
-import { FaTh, FaThList, FaSearch, FaStar, FaFilter, FaTimes } from 'react-icons/fa';
+import { FaTh, FaThList, FaSearch, FaStar, FaFilter } from 'react-icons/fa';
 import { MockCourse } from './MockCourse/MockCourse';
 import FilterSidebar from './FilterSidebar/FilterSidebar';
+import { courseAPI } from '../../services/api';
 
 // --- Helper Hook for Debouncing (to improve search performance) ---
 const useDebounce = (value, delay) => {
@@ -50,6 +51,8 @@ const COURSES_PER_PAGE = 9;
 const CourseCatalog = () => {
     // --- State Management ---
     const [courses, setCourses] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
     const [viewMode, setViewMode] = useState('grid');
     const [sortBy, setSortBy] = useState('popularity');
     const [currentPage, setCurrentPage] = useState(1);
@@ -68,8 +71,24 @@ const CourseCatalog = () => {
     // --- Data Fetching & Processing ---
 
     useEffect(() => {
-        setCourses(MockCourse);
-    }, []);
+        const fetchCourses = async () => {
+            try {
+                setLoading(true);
+                setError(null);
+                const coursesData = await courseAPI.getAllCourses(filters);
+                setCourses(coursesData.courses || coursesData);
+            } catch (err) {
+                console.error('Error fetching courses:', err);
+                setError('Unable to load courses from server');
+                // Fallback to mock data when API is not available
+                setCourses(MockCourse);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchCourses();
+    }, [filters]);
 
     const filteredAndSortedCourses = useMemo(() => {
         let result = [...courses];
@@ -126,7 +145,7 @@ const CourseCatalog = () => {
     // --- Handlers ---
     
     const handleFilterChange = (e) => {
-        const { name, value, type, checked } = e.target;
+        const { name, value, checked } = e.target;
         setFilters(prev => {
             if (name === 'category' || name === 'duration') {
                 const list = prev[name] ? [...prev[name]] : [];
@@ -194,7 +213,27 @@ const CourseCatalog = () => {
                     </div>
 
                     <div className={`course-list ${viewMode}`}>
-                       {displayedCourses.length > 0 ? (
+                       {error && (
+                           <div style={{
+                               backgroundColor: '#fee',
+                               color: '#c33',
+                               padding: '15px',
+                               borderRadius: '5px',
+                               marginBottom: '15px',
+                               textAlign: 'center'
+                           }}>
+                               {error} - Showing cached courses
+                           </div>
+                       )}
+                       {loading ? (
+                           <div style={{
+                               textAlign: 'center',
+                               padding: '40px',
+                               color: '#666'
+                           }}>
+                               Loading courses...
+                           </div>
+                       ) : displayedCourses.length > 0 ? (
                            displayedCourses.map(course => <CourseCard key={course.id} course={course} viewMode={viewMode} />)
                        ) : (
                            <p className="no-courses-found">No courses match your criteria. Try adjusting your filters.</p>

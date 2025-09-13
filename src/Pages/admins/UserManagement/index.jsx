@@ -13,7 +13,7 @@ const UserManagement = () => {
     { id: 7, name: 'Susan B. Anthony', email: 'susan.b@example.com', role: 'Student', status: 'Active', joinDate: '2024-02-18' },
   ];
 
-  const [users, setUsers] = useState(allUsers);
+  const [users] = useState(allUsers);
   const [searchTerm, setSearchTerm] = useState('');
   const [roleFilter, setRoleFilter] = useState('All');
 

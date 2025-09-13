@@ -27,12 +27,11 @@ const VerifyEmailPage = () => {
     const [isResending, setIsResending] = useState(false);
     const inputRefs = useRef([]);
 
-    // Function to generate a random 6-digit code
-    const generateCode = () => Math.floor(100000 + Math.random() * 900000).toString();
-
     // Function to simulate sending the code (in a real app, this would be an API call)
     const sendVerificationCode = React.useCallback(() => {
         setIsResending(true);
+        // Function to generate a random 6-digit code
+        const generateCode = () => Math.floor(100000 + Math.random() * 900000).toString();
         const newCode = generateCode();
         setVerificationCode(newCode);
 
@@ -43,7 +42,7 @@ const VerifyEmailPage = () => {
             setIsResending(false);
             setResendTimer(60); // Reset timer
         }, 1500);
-    }, [generateCode]);
+    }, []);
 
     // Send initial code on component mount
    
