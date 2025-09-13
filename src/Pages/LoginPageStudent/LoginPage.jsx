@@ -1,18 +1,22 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './LoginPage.css';
 import { FaEnvelope, FaLock, FaInstagram, FaFacebook } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import { FaXTwitter } from "react-icons/fa6";
+import { authAPI } from '../../services/api';
 
 
 // You can replace this with your actual logo
 const logoUrl = '/logo.png';
 
 const LoginPage = () => {
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [rememberMe, setRememberMe] = useState(false);
     const [errors, setErrors] = useState({});
+    const [isLoading, setIsLoading] = useState(false);
 
     const validateForm = () => {
         const newErrors = {};
@@ -31,18 +35,41 @@ const LoginPage = () => {
         return newErrors;
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const formErrors = validateForm();
         if (Object.keys(formErrors).length > 0) {
             setErrors(formErrors);
         } else {
-            // Reset errors if validation is successful
             setErrors({});
-            // --- SUBMIT LOGIN DATA ---
-            console.log('Login Submitted', { email, password, rememberMe });
-            alert(`Logged in with Email: ${email}`);
-            // In a real app, you would make an API call here
+            setIsLoading(true);
+            
+            try {
+                const response = await authAPI.loginStudent({
+                    email,
+                    password,
+                    rememberMe
+                });
+                
+                // Success - redirect to student dashboard
+                console.log('Login successful:', response);
+                navigate('/students');
+            } catch (error) {
+                console.error('Login error:', error);
+                
+                // Handle different error types
+                if (error.response?.status === 401) {
+                    setErrors({ general: 'Invalid email or password' });
+                } else if (error.response?.status === 403) {
+                    setErrors({ general: 'Account not verified. Please check your email.' });
+                } else if (error.response?.data?.message) {
+                    setErrors({ general: error.response.data.message });
+                } else {
+                    setErrors({ general: 'Unable to connect to server. Please try again later.' });
+                }
+            } finally {
+                setIsLoading(false);
+            }
         }
     };
 
@@ -102,7 +129,26 @@ const LoginPage = () => {
                             <a href="/forgot-password-student">Forgot Password</a>
                         </div>
 
-                        <button type="submit" className="login-button">Log in</button>
+                        {errors.general && (
+                            <div className="error-message" style={{ 
+                                backgroundColor: '#fee', 
+                                color: '#c33', 
+                                padding: '10px', 
+                                borderRadius: '5px', 
+                                marginBottom: '15px',
+                                textAlign: 'center'
+                            }}>
+                                {errors.general}
+                            </div>
+                        )}
+
+                        <button 
+                            type="submit" 
+                            className="login-button"
+                            disabled={isLoading}
+                        >
+                            {isLoading ? 'Logging in...' : 'Log in'}
+                        </button>
                     </form>
                     <br>
                     </br>

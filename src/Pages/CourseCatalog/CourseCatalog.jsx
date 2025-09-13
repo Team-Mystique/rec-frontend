@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import './CourseCatalog.css';
-import { FaTh, FaThList, FaSearch, FaStar, FaFilter, FaTimes } from 'react-icons/fa';
+import { FaTh, FaThList, FaSearch, FaStar, FaFilter } from 'react-icons/fa';
 import { MockCourse } from './MockCourse/MockCourse';
 import FilterSidebar from './FilterSidebar/FilterSidebar';
 
@@ -126,7 +126,7 @@ const CourseCatalog = () => {
     // --- Handlers ---
     
     const handleFilterChange = (e) => {
-        const { name, value, type, checked } = e.target;
+        const { name, value, checked } = e.target;
         setFilters(prev => {
             if (name === 'category' || name === 'duration') {
                 const list = prev[name] ? [...prev[name]] : [];
