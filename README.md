@@ -3,6 +3,38 @@
 This repository contains the frontend of the Rise Edu Consult WebApp, an academic project developed by **Team Mystique** as part of the DCIT 208 Software Engineering course at the University of Ghana.
 
 The platform supports Rise Edu Consult’s mission of delivering AI and digital skills training to individuals and institutions across Ghana through an interactive and accessible web-based solution.
+🌐 **Live Site**: [https://riseedu.com](https://riseedu.com)
+
+## Quick Start
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm start
+
+# Build for production
+npm run build
+
+# Run tests
+npm test
+```
+
+## Deployment
+
+This application is configured for hosting at **riseedu.com**. See [DEPLOYMENT.md](./DEPLOYMENT.md) for complete hosting instructions including:
+
+- GitHub Pages setup
+- Netlify deployment
+- Vercel deployment  
+- Traditional web server configuration
+
+### Quick Deploy Verification
+
+```bash
+./verify-deployment.sh
+```
 
 ---
 
